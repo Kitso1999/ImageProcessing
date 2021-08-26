@@ -6,9 +6,8 @@
 namespace bmp{
     typedef char byte;
     struct RasterData{
-    private:
         std::vector<Pixel> Data;
-    public:
-        friend std::ostream& operator<<(std::ostream& ofs, const RasterData& rd);
+        std::istream& read(std::istream& is);
+        std::ostream& write(std::ostream& os)const;
     };
 }

@@ -3,11 +3,10 @@
 
 namespace bmp{
     struct InfoHeader{
-    private:
-        static const unsigned int Size; // =40
+        unsigned int Size; // =40
         unsigned int Width;
         unsigned int Height;
-        static const unsigned short Planes; // =1
+        unsigned short Planes; // =1
         unsigned short BitCount;
         unsigned short BitsPerPixel;
         unsigned int Compression;
@@ -16,7 +15,8 @@ namespace bmp{
         unsigned int YPixelsPerM;
         unsigned int ColorsUsed;
         unsigned int ImportantColors;
-    public:
-        friend std::ostream& operator<<(std::ostream& ofs, const InfoHeader& ih);
+        
+        std::istream& read(std::istream& is);
+        std::ostream& write(std::ostream& os)const;
     };//InfoHeader
 }//bmp

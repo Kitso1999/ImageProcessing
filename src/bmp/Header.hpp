@@ -3,12 +3,11 @@
 
 namespace bmp{
     struct Header{
-    private:
-       static const char Signature[3]; // ='BM'
-       unsigned int FileSize;
-       static unsigned int reserved; // =0
-       unsigned int DataOffset;
-    public:
-        friend std::ostream& operator<<(std::ostream& ofs, const Header& h);
+        char Signature[2]; // ='BM'
+        unsigned int FileSize;
+        unsigned int reserved; // =0
+        unsigned int DataOffset;
+        std::istream& read(std::istream& is);
+        std::ostream& write(std::ostream& os)const;
     };//Header
 }//bmp

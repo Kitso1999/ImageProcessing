@@ -1,10 +1,16 @@
 #include "RasterData.hpp"
 
 namespace bmp{
-    std::ostream& operator<<(std::ostream& ofs, const RasterData& rd){
-        for(int i = 0; i < rd.Data.size(); ++i){
-            ofs << rd.Data[i];
+    std::istream& RasterData::read(std::istream& is){
+        for(size_t i = 0; i < Data.size(); ++i){
+            Data.at(i).read(is);
         }
-        return ofs;
+        return is;
+    }
+    std::ostream& RasterData::write(std::ostream& os)const{
+        for(size_t i = 0; i < Data.size(); ++i){
+            Data.at(i).write(os);
+        }
+        return os;
     }
 }

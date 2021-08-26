@@ -4,11 +4,10 @@
 namespace bmp{
     typedef char byte;
     struct Pixel{
-    private:
         byte Blue;
         byte Green;
         byte Red;
-    public:
-        friend std::ostream& operator<<(std::ostream& ofs, const Pixel& p);
+        std::istream& read(std::istream& is);
+        std::ostream& write(std::ostream& os)const;
     };//Pixel
 }//bmp

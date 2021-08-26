@@ -12,6 +12,8 @@ namespace bmp{
         ColorTable color_table;
         RasterData raster_data;
     public:
-        friend std::ostream& operator<<(std::ostream& ofs, const Image& img);
+        Image();
+        std::istream& read(std::istream& is);
+        std::ostream& write(std::ostream& os)const;
     };
 }
